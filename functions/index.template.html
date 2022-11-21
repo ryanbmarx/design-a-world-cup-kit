@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <title>Svelte app</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="preload" href="models/soccerPlayer/player_kit.fbx" />
+  <link rel="preload" href="models/soccerPlayer/shirt.png" />
+  <link rel="preload" href="models/soccerPlayer/shoes.png" />
+  <link rel="preload" href="models/soccerPlayer/socks.png" />
+  <link rel="preload" href="models/soccerPlayer/skin.png" />
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="bundle.css" />
+
+  <script defer type="module" src="bundle.js"></script>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    #templateNav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      height: 55px;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000000000000;
+      border-bottom: 1px solid #aaa;
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="templateNav">It's USA TODAY!</nav>
+  {{HTML}}
+</body>
+
+</html>

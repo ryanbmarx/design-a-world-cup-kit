@@ -1,0 +1,10 @@
+{
+	"dest": "functions/data",
+	"mode": {
+		"symbol": {
+			"dest": ".",
+			"sprite": "sprite.svg",
+			"inline": true
+		}
+	}
+}

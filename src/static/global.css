@@ -1,0 +1,200 @@
+html body {
+	/* GREY */
+	--grey-slate: #3a3a3a;
+	--grey-medium: #666;
+	--grey-medium-light: #909090;
+
+	/* Not accessible over white. */
+	/* Not accessible over white. */
+	--grey-light: #eeeeee;
+	--grey-very-light: #f3f3f3;
+
+	/* THEMES */
+	--color-background-light: #ffffff;
+	--color-background-dark: var(--grey-slate);
+
+	/* COLOR CONFIG*/
+	--color-accent: #f03c4b;
+	--color-accent-text: #ffffff;
+	--color-background: var(--color-background-dark);
+	--color-screen-light: var(--grey-light);
+	--s2-color-ad-wrapper: var(--color-background);
+	--color-font: white;
+	--color-font-muted: var(--grey-medium);
+	--color-font-very-muted: var(--grey-medium-light);
+
+	/* Scaffoldinfg and spacing */
+	--touch-target: 44px;
+	--gap: 1rem;
+
+	/* ANIMATIONS */
+	--speed-transition: 100ms;
+
+	/* Typography */
+	--fonts-sans-serif: "Unify Sans", "Helvetica", "Arial", sans-serif;
+	--fonts-serif: "Georgia Pro", Georgia, "Droid Serif", "Times New Roman", serif;
+
+	--font-size-small: 0.8rem;
+	--font-size: 1rem;
+	--font-size-medium-large: 1.2rem;
+	--font-size-large: 1.4rem;
+	--font-size-very-large: 2rem;
+	--font-line-height: 1.4em;
+
+	/* UW FIX-ITS */
+	--agent-nav-height: 56px;
+	--font-color: var(--color-font) !important;
+	--type-primary: var(--color-font) !important;
+	--background-color: var(--color-background) !important;
+}
+
+html body .app * {
+	box-sizing: border-box;
+}
+html body .app *:is(:focus, :focus-visible, :focus-within) {
+	outline-color: var(--color-accent);
+}
+
+html body.scroll-lock {
+	overflow: hidden;
+}
+
+.app p:not([class]) {
+	/* All plain vanilla (i.e. unmodified with a class) p tags in the application root */
+	font: 18px/27px var(--fonts-serif); /* Tangent body text */
+	margin: 1rem 0;
+	color: var(--color-font);
+}
+
+.headline {
+	font: bold var(--font-size-very-large) / var(--font-line-height)
+		var(--fonts-sans-serif);
+	color: var(--color-font);
+	margin-bottom: 1rem;
+}
+.subheadline {
+	font: italic var(--font-size-medium-large) / var(--font-line-height)
+		var(--fonts-serif);
+	color: var(--color-font);
+	font-weight: normal;
+	margin-bottom: 1rem;
+}
+
+.label {
+	display: block;
+	font: bold var(--font-size) / 1.3em var(--fonts-sans-serif);
+	color: var(--color-font);
+	margin: 0;
+}
+.sublabel {
+	display: block;
+	font: bold var(--font-size-small) / 1.3em var(--fonts-sans-serif);
+	color: var(--color-font);
+	margin: 0;
+}
+
+.label--large {
+	font-size: 1.2em;
+}
+
+.label.disabled {
+	color: var(--grey-medium-light);
+}
+
+.app .contributing :is(p, li) {
+	font: var(--font-size-small) / 1.3em var(--fonts-sans-serif);
+	color: var(--grey-medium);
+	margin: var(--gap) 0 0 0;
+}
+
+/* A valid, accessible method for visually hiding content (such as text labels on icon buttons) while preserving it for screen readers and other sight-assist tools. */
+.visually-hidden:not(:focus) {
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+/* FOR THE COLOR AND PATTERN PICKERS */
+
+.swatches {
+	--swatch-columns: 6;
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(
+		var(--swatch-columns),
+		minmax(var(--touch-target), 1fr)
+	);
+	gap: calc(var(--gap) / 2);
+	padding: 0;
+}
+.swatches li {
+	width: 100%;
+	/* max-height: var(--touch-target); */
+	aspect-ratio: 1/1;
+}
+
+@supports not (aspect-ratio: 1 / 1) {
+	.swatches li {
+		height: var(--touch-target);
+	}
+}
+
+.swatch {
+	display: block;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	border-radius: 0;
+	cursor: not-allowed;
+	background-color: var(--grey-medium);
+	transition: transform var(--speed-transition) ease-in-out;
+	border: 3px solid black;
+}
+
+.swatch__inner {
+	/* Good for when you have patterns or BG images */
+	display: block;
+	height: 100%;
+	width: 100%;
+	background-color: white;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	transition: opacity var(--speed-transition) ease-out;
+	opacity: 1;
+}
+
+.swatch[disabled] > .swatch__inner {
+	background-color: var(--grey-medium);
+	opacity: 0;
+}
+
+.swatch:not([disabled], .disabled) {
+	cursor: pointer;
+	background-color: var(--color-background);
+}
+
+.swatch:not([disabled], .disabled):hover {
+	transform: scale(1.1);
+}
+
+.swatch:not([disabled], .disabled):focus {
+	border-color: var(--color-accent);
+}
+
+@media all and (min-width: 768px) {
+	.swatches {
+		--swatch-columns: 5;
+	}
+}
+
+@media all and (min-width: 1024px) {
+	.swatches {
+		--swatch-columns: 6;
+	}
+}
