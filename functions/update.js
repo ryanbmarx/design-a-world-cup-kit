@@ -18,8 +18,7 @@ process.env.GAPI_PRIVATE_KEY = process.env.GAPI_PRIVATE_KEY;
 process.env.TZ = "US/Eastern";
 
 // The main google spreadsheet
-// https://docs.google.com/spreadsheets/d/1L6kWV-9SxE8q8LbX9o-HbMO9qPxm4UIG9YgD7gglUtA/edit#gid=892955810
-const SPREADSHEET_ID = "1L6kWV-9SxE8q8LbX9o-HbMO9qPxm4UIG9YgD7gglUtA";
+const SPREADSHEET_ID = "***";
 
 const OUTPUT = path.join(__dirname, "data", "content.json");
 
